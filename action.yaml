@@ -1,0 +1,12 @@
+name: "sample-composite-action"
+description: "sample-composite-action"
+inputs:
+  test-input:
+    description: "test input data"
+    required: true
+    default: ""
+runs:
+  using: "composite"
+  steps:
+    - run: go run ${{ github.action_path }}/main.go ${{ inputs.test-input }}
+      shell: bash
